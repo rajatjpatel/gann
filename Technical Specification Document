@@ -1,0 +1,346 @@
+Gann Square of 9 Analysis Tool - Technical Specification Document
+Project Overview
+Executive Summary
+A comprehensive technical trading tool implementing W.D. Gann's Square of 9 methodology for financial market analysis. The tool integrates geometric price relationships with astrological timing factors to identify potential market turning points and support/resistance levels.
+
+Core Purpose
+Price-Angle Analysis: Convert price levels to angular positions on the Square of 9
+
+Timing Integration: Correlate planetary positions with price geometry
+
+Market Prediction: Identify high-probability reversal points using Gann's "Squaring of Time and Price" principle
+
+Technical Architecture
+1. Core Components
+1.1 Square of 9 Engine
+typescript
+interface SquareOfNineConfig {
+    rotation: 'clockwise' | 'counterclockwise';
+    size: number; // Adjustable digits/rings
+    dataType: 'price';
+    centerValue: number; // Typically 1
+    increment: number; // Typically 1
+    currentPrice: number;
+}
+1.2 Cosmogram System
+typescript
+interface CosmogramConfig {
+    visible: boolean;
+    system: 'geocentric';
+    timeFrame: string; // UTC offset
+    currentDateTime: Date;
+    activePlanets: string[];
+    showAspects: boolean;
+}
+1.3 Visualization Layer
+typescript
+interface VisualizationConfig {
+    showMoonPhases: boolean;
+    showPlanets: boolean;
+    showCardinalCross: boolean;
+    showFixedCross: boolean;
+    protractorAngle: number; // Typically 0
+}
+Detailed Feature Specifications
+Module 1: Interface Configuration System
+1.1 Decluttering Controls
+Technical Requirements:
+
+Toggle switches for auxiliary indicators
+
+State persistence for user preferences
+
+Real-time UI updates without page refresh
+
+Implementation:
+
+javascript
+class InterfaceManager {
+    disableMoonPhases(): void
+    disablePlanets(): void
+    hideAspects(): void
+    setChartType(type: 'square' | 'triangle'): void
+}
+Module 2: Square of 9 Core Engine
+2.1 Mathematical Foundation
+Algorithm Specifications:
+
+Rotation: Clockwise spiral progression algorithm
+
+Size Calculation: Dynamic ring expansion based on price range
+
+Price-to-Angle Conversion: Logarithmic spiral mapping function
+
+Key Formulas:
+
+python
+def price_to_angle(price: float, center: float = 1) -> float:
+    """
+    Convert price to angular position on Square of 9
+    Returns: Angle in degrees (0-360)
+    """
+    # Implementation of Gann's price-angle conversion
+    pass
+
+def calculate_square_levels(center: float, rings: int, increment: float) -> List[float]:
+    """
+    Generate complete Square of 9 price levels
+    """
+    pass
+2.2 Configuration Parameters
+Database Schema:
+
+sql
+CREATE TABLE square_config (
+    id SERIAL PRIMARY KEY,
+    rotation_direction VARCHAR(10) DEFAULT 'clockwise',
+    center_value DECIMAL(15,6) DEFAULT 1.0,
+    increment_value DECIMAL(15,6) DEFAULT 1.0,
+    max_rings INTEGER DEFAULT 10,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+Module 3: Visualization & Interaction System
+3.1 Marking Engine
+Functionality:
+
+Left-click: Place price markers
+
+Right-click: Remove markers
+
+Marker persistence across sessions
+
+Angle-based projection calculations
+
+Technical Implementation:
+
+javascript
+class MarkerEngine {
+    markPrice(price: number, type: 'high' | 'low'): void
+    unmarkPrice(price: number): void
+    getProjectedLevels(markedPrice: number): number[]
+    calculateAngularRelationships(): Map<number, number[]>
+}
+3.2 Cross-Hair System
+Cardinal Cross (0°, 90°, 180°, 270°)
+Fixed Cross (45°, 135°, 225°, 315°)
+
+Rendering Requirements:
+
+SVG-based cross visualization
+
+Dynamic opacity controls
+
+Color customization
+
+Toggle visibility
+
+Module 4: Cosmogram & Ephemeris Integration
+4.1 Planetary Position Calculator
+Data Sources:
+
+Swiss Ephemeris library integration
+
+Real-time planetary position API
+
+Historical ephemeris database
+
+Technical Implementation:
+
+python
+class EphemerisCalculator:
+    def __init__(self, system: str = 'geocentric'):
+        self.system = system
+    
+    def get_planet_position(self, planet: str, datetime: datetime) -> float:
+        """Returns planetary position in degrees"""
+        pass
+    
+    def calculate_aspects(self, planets: List[str]) -> Dict[str, List[Aspect]]:
+        """Calculate angular relationships between planets"""
+        pass
+4.2 Time Zone Handling
+Requirements:
+
+UTC offset configuration
+
+Exchange time zone support
+
+Automatic daylight saving adjustments
+
+Historical date/time selection
+
+Database Design
+Core Tables
+sql
+-- User configurations
+CREATE TABLE user_settings (
+    user_id UUID PRIMARY KEY,
+    square_config JSONB,
+    cosmogram_config JSONB,
+    interface_config JSONB,
+    timezone VARCHAR(50)
+);
+
+-- Price markers
+CREATE TABLE price_markers (
+    id UUID PRIMARY KEY,
+    user_id UUID REFERENCES user_settings(user_id),
+    price DECIMAL(15,6),
+    marker_type VARCHAR(10),
+    created_at TIMESTAMP,
+    angle DECIMAL(8,4)
+);
+
+-- Analysis sessions
+CREATE TABLE analysis_sessions (
+    id UUID PRIMARY KEY,
+    user_id UUID REFERENCES user_settings(user_id),
+    instrument_symbol VARCHAR(20),
+    session_data JSONB,
+    created_at TIMESTAMP
+);
+API Endpoints Specification
+1. Square of 9 Operations
+text
+POST /api/square/calculate-levels
+GET /api/square/find-price-angle/{price}
+POST /api/square/update-config
+
+### 2. Cosmogram Operations
+POST /api/cosmogram/planetary-positions
+GET /api/cosmogram/aspects/{date}
+POST /api/cosmogram/toggle-planets
+
+3. Marker Operations
+text
+POST /api/markers/add
+DELETE /api/markers/remove/{id}
+GET /api/markers/user/{userId}
+Frontend Components Structure
+React Component Hierarchy
+text
+App/
+├── Toolbar/
+│   ├── InterfaceToggles/
+│   ├── SquareConfig/
+│   └── TimeSettings/
+├── MainWorkspace/
+│   ├── SquareOf9Canvas/
+│   ├── CosmogramWheel/
+│   └── PriceMarkerLayer/
+└── SidePanel/
+    ├── EphemerisTable/
+    └── AnalysisTools/
+Key Components Specification
+SquareOf9Canvas Component
+Props:
+
+typescript
+interface SquareCanvasProps {
+    config: SquareConfig;
+    markers: PriceMarker[];
+    showCrosses: boolean;
+    protractorAngle: number;
+    onPriceClick: (price: number) => void;
+}
+CosmogramWheel Component
+Props:
+
+typescript
+interface CosmogramProps {
+    visible: boolean;
+    planets: Planet[];
+    showAspects: boolean;
+    currentTime: Date;
+    timezone: string;
+}
+Technical Stack Recommendations
+Backend
+Language: Python 3.9+ (for mathematical calculations)
+
+Framework: FastAPI or Django REST Framework
+
+Ephemeris: Swiss Ephemeris library (C++ with Python bindings)
+
+Database: PostgreSQL with PostGIS for geometric calculations
+
+Caching: Redis for ephemeris data
+
+Frontend
+Framework: React 18+ with TypeScript
+
+Visualization: D3.js for Square of 9 rendering
+
+State Management: Redux Toolkit
+
+Charts: Recharts or Chart.js for auxiliary displays
+
+Deployment
+Containerization: Docker & Docker Compose
+
+CI/CD: GitHub Actions
+
+Hosting: AWS/Azure with auto-scaling
+
+Development Phases
+Phase 1: Core Square of 9 
+Mathematical engine implementation
+
+Basic visualization
+
+Configuration system
+
+Phase 2: Interaction System 
+Marking engine
+
+Cross-hair visualization
+
+Price finding functionality
+
+Phase 3: Cosmogram Integration 
+Ephemeris integration
+
+Planetary position calculations
+
+Basic timing overlays
+
+Phase 4: Advanced Features 
+Historical analysis
+
+Session management
+
+Performance optimization
+
+Testing Strategy
+Unit Tests
+Price-to-angle conversion accuracy
+
+Square level generation
+
+Planetary position calculations
+
+Integration Tests
+End-to-end analysis workflows
+
+Database operations
+
+API endpoint functionality
+
+Performance Testing
+Large price range handling
+
+Real-time position updates
+
+Multiple concurrent users
+
+Security Considerations
+User authentication and authorization
+
+Secure WebSocket connections for real-time data
+
+Input validation for all mathematical operations
+
+Rate limiting for ephemeris API calls
+
+This specification provides a comprehensive foundation for development teams to implement a professional-grade Gann Square of 9 analysis tool. The modular architecture allows for parallel development and future enhancements.
+
