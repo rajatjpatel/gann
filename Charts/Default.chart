@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<Gannzilla>
+  <Layout Expanded="True" Visible="True" Zoom="100" View="Square of 9" Size="9" DataType="Price" Clockwise="True">
+    <Price Expanded="True" InitialValue="0" Increment="1"/>
+    <Date Expanded="False" InitialValue="06.12.2010" Increment="1" Period="Day" TradingDays="False" Format="dd.mm" Position="Bottom"/>
+    <Time Expanded="False" InitialValue="06.12.2010 00:00" Increment="30" Period="Minute" TradingDays="False" Position="Bottom">
+      <Session Expanded="False" Visible="False" StartTime="09:00" EndTime="17:00"/>
+      <Date Expanded="False" Visible="False" Format="dd.mm" Position="Top"/>
+    </Time>
+    <Stripes Expanded="True" Visible="True" Type="Crosses"/>
+    <Marks Visible="True"/>
+  </Layout>
+  <Protractor Expanded="True" Visible="True" Clockwise="False" Angle="0" ShowRadius="True" ShowSmallTicks="True">
+    <Highlight Expanded="False" Visible="False" StartAngle="0" EndAngle="0"/>
+  </Protractor>
+  <Calendar Expanded="True" Visible="True" Type="24 hours" Clockwise="False" Angle="0" ShowRadius="True" ShowSmallTicks="False">
+    <Highlight Expanded="False" Visible="False" StartAngle="0" EndAngle="0"/>
+  </Calendar>
+  <Zodiac Expanded="True" Visible="True" Icons="Symbols" Clockwise="False" ShowSmallTicks="False">
+    <Highlight Expanded="False" Visible="False" StartAngle="0" EndAngle="0"/>
+    <Cosmogram Expanded="True" System="Geocentric">
+      <Coordinates Expanded="True" Location="User-defined">
+        <UserDefined TimeZone="UTC+00:00">
+          <Latitude Degrees="51" Minutes="28" Seconds="38" Direction="North"/>
+          <Longitude Degrees="0" Minutes="0" Seconds="0" Direction="West"/>
+        </UserDefined>
+      </Coordinates>
+      <Date Expanded="True" Today="True" Value="06.12.2010" Increment="1" Period="Day"/>
+      <Time Expanded="True" Value="00:00" Increment="4" Period="Minute"/>
+      <Planets Expanded="True" System="Ecliptical">
+        <Sun Visible="True" Selected="False"/>
+        <Moon Visible="True" Selected="False"/>
+        <Earth Visible="True" Selected="False"/>
+        <Mercury Visible="True" Selected="False"/>
+        <Venus Visible="True" Selected="False"/>
+        <Mars Visible="True" Selected="False"/>
+        <Jupiter Visible="True" Selected="False"/>
+        <Saturn Visible="True" Selected="False"/>
+        <Uranus Visible="True" Selected="False"/>
+        <Neptune Visible="True" Selected="False"/>
+        <Pluto Visible="True" Selected="False"/>
+        <NorthNode Visible="True" Selected="False"/>
+        <SouthNode Visible="True" Selected="False"/>
+      </Planets>
+      <Houses Expanded="True" System="Placidus">
+        <Asc Visible="True"/>
+        <HouseII Visible="True"/>
+        <HouseIII Visible="True"/>
+        <IC Visible="True"/>
+        <HouseV Visible="True"/>
+        <HouseVI Visible="True"/>
+        <Dsc Visible="True"/>
+        <HouseVIII Visible="True"/>
+        <HouseIX Visible="True"/>
+        <MC Visible="True"/>
+        <HouseXI Visible="True"/>
+        <HouseXII Visible="True"/>
+      </Houses>
+      <Aspects Expanded="True" Visible="True">
+        <Conjunction Visible="True" Orb="5"/>
+        <Sextile Visible="True" Orb="5"/>
+        <Square Visible="True" Orb="5"/>
+        <Trine Visible="True" Orb="5"/>
+        <Opposition Visible="True" Orb="5"/>
+        <UserDefined Expanded="False">
+          <Aspect Visible="0" Value="30" Orb="5"/>
+          <Aspect Visible="0" Value="45" Orb="5"/>
+          <Aspect Visible="0" Value="72" Orb="5"/>
+          <Aspect Visible="0" Value="144" Orb="5"/>
+          <Aspect Visible="0" Value="150" Orb="5"/>
+        </UserDefined>
+      </Aspects>
+    </Cosmogram>
+  </Zodiac>
+  <Figures Expanded="True">
+    <Triangle Expanded="True" Visible="True" BoldAxes="True" OnlyAxes="False" Angle="0" SweepAngle="120">
+      <Degrees Expanded="True" Visible="True" Clockwise="False"/>
+    </Triangle>
+    <Square Expanded="True" Visible="True" BoldAxes="True" OnlyAxes="False" Angle="0">
+      <Degrees Expanded="True" Visible="True" Clockwise="False"/>
+    </Square>
+    <Pentagon Expanded="False" Visible="False" BoldAxes="True" OnlyAxes="False" Angle="0">
+      <Degrees Expanded="False" Visible="True" Clockwise="False"/>
+    </Pentagon>
+    <Hexagon Expanded="False" Visible="False" BoldAxes="True" OnlyAxes="False" Angle="0">
+      <Degrees Expanded="False" Visible="True" Clockwise="False"/>
+    </Hexagon>
+    <Heptagon Expanded="False" Visible="False" BoldAxes="True" OnlyAxes="False" Angle="0">
+      <Degrees Expanded="False" Visible="True" Clockwise="False"/>
+    </Heptagon>
+    <Octagon Expanded="False" Visible="False" BoldAxes="True" OnlyAxes="False" Angle="0">
+      <Degrees Expanded="False" Visible="True" Clockwise="False"/>
+    </Octagon>
+    <Nonagon Expanded="False" Visible="False" BoldAxes="True" OnlyAxes="False" Angle="0">
+      <Degrees Expanded="False" Visible="True" Clockwise="False"/>
+    </Nonagon>
+    <Decagon Expanded="False" Visible="False" BoldAxes="True" OnlyAxes="False" Angle="0">
+      <Degrees Expanded="False" Visible="True" Clockwise="False"/>
+    </Decagon>
+    <Hendecagon Expanded="False" Visible="False" BoldAxes="True" OnlyAxes="False" Angle="0">
+      <Degrees Expanded="False" Visible="True" Clockwise="False"/>
+    </Hendecagon>
+    <Dodecagon Expanded="False" Visible="False" BoldAxes="True" OnlyAxes="False" Angle="0">
+      <Degrees Expanded="False" Visible="True" Clockwise="False"/>
+    </Dodecagon>
+    <Vectors Expanded="False" Visible="False" BoldLines="True" Angle="0">
+      <UserDefined Expanded="False">
+        <Vector Value="38.2"/>
+        <Vector Value="50"/>
+        <Vector Value="61.8"/>
+        <Vector Value="100"/>
+        <Vector Value="138.2"/>
+        <Vector Value="150"/>
+        <Vector Value="161.8"/>
+        <Vector Value="261.8"/>
+      </UserDefined>
+      <Degrees Expanded="False" Visible="True" Clockwise="False"/>
+    </Vectors>
+    <Vortex Expanded="False" Visible="False" Direction="Both" BoldSpirals="True" BoldAxes="True" Price="0" Date="06.12.2010" Time="06.12.2010 00:00" Radius="1" Angle="0"/>
+  </Figures>
+  <Colors Expanded="True">
+    <Background>White</Background>
+    <Layout Expanded="False">
+      <Stripes>Smoke</Stripes>
+      <Grid>Asphalt</Grid>
+      <Marks Expanded="False">
+        <High>Lime</High>
+        <Low>Coral</Low>
+        <Forecast>Yellow</Forecast>
+      </Marks>
+    </Layout>
+    <Protractor Expanded="False">
+      <Circle>Black</Circle>
+      <BigTicks>Red</BigTicks>
+      <SmallTicks>Gray</SmallTicks>
+      <Highlight>Red</Highlight>
+    </Protractor>
+    <Calendar Expanded="False">
+      <Circle>Black</Circle>
+      <BigTicks>Green</BigTicks>
+      <SmallTicks>Gray</SmallTicks>
+      <Highlight>Green</Highlight>
+    </Calendar>
+    <Zodiac Expanded="False">
+      <Circle>Black</Circle>
+      <BigTicks>Blue</BigTicks>
+      <SmallTicks>Gray</SmallTicks>
+      <Highlight>Blue</Highlight>
+    </Zodiac>
+    <Figures Expanded="False">
+      <Triangle>Pink</Triangle>
+      <Square>Cornflower</Square>
+      <Pentagon>Cyan</Pentagon>
+      <Hexagon>Clover</Hexagon>
+      <Heptagon>Wood</Heptagon>
+      <Octagon>Magenta</Octagon>
+      <Nonagon>Pistachio</Nonagon>
+      <Decagon>Carrot</Decagon>
+      <Hendecagon>Plum</Hendecagon>
+      <Dodecagon>Gold</Dodecagon>
+      <Vectors>Cherry</Vectors>
+      <Vortex Expanded="False">
+        <Clockwise>Ruby</Clockwise>
+        <Counterclockwise>Teal</Counterclockwise>
+        <Axes>Gray</Axes>
+      </Vortex>
+    </Figures>
+  </Colors>
+</Gannzilla>
